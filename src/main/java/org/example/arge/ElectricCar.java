@@ -21,28 +21,24 @@ public class ElectricCar extends CarSkeleton{
     public ElectricCar(String name, String description) {
         super(name, description);
     }
+
     public String recharge() {
         return getClass().getSimpleName() + " is charging the battery. Current size: " + getBatterySize() + " kWh.";
     }
 
     @Override
     public String startEngine() {
-        runEngine();
+        runEngine(this);
         System.out.println(getClass().getSimpleName());
-        return super.getName() + "'s engine is starting";
+        return getName() + "'s engine is starting";
     }
 
     @Override
     public String drive() {
         System.out.println(getClass().getSimpleName());
-        return super.getName() + "is driving";
+        return "run from Electric Car";
     }
 
-    @Override
-    protected void runEngine() {
-        System.out.println(getClass().getSimpleName());
-        System.out.println(super.getName() + " is running");
-    }
     // Sadece bu sınıfa(child) ait bir metot;
 
 

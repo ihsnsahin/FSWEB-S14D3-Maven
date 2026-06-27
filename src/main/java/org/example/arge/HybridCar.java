@@ -25,20 +25,14 @@ public class HybridCar extends CarSkeleton{
     }
     @Override
     public String startEngine() {
-        runEngine();
+        runEngine(this);
         System.out.println(getClass().getSimpleName());
-        return super.getName() + "'s engine is starting";
+        return getName() + "'s engine is starting";
     }
 
     @Override
     public String drive() {
         System.out.println(getClass().getSimpleName());
-        return super.getName() + "is driving";
-    }
-
-    @Override
-    protected void runEngine() {
-        System.out.println(getClass().getSimpleName());
-        System.out.println(super.getName() + " is running");
+        return "run from Hybrid Car";
     }
 }

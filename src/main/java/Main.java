@@ -11,51 +11,43 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Car car = new Car(8, "Base car");
+
+        // Upcasting;
+        Car mitsubishi = new Mitsubishi(6, "Outlander VRX 4WD");
+
+        printResult(mitsubishi);
+
+        Car ford = new Ford(6, "Ford Falcon");
+
+        printResult(ford);
+
+        Car holden = new Holden(6, "Holden Commodore");
+
+        printResult(holden);
+
+        System.out.println("******************************************");
+
+        CarSkeleton togg = new ElectricCar("TOGG T10X","Elektrikli araç", 523.0, 88 );
+        startCar(togg);
+
+        CarSkeleton hybridCar = new HybridCar("Toyota Prius", "Hybrid Engine", 4.2, 50, 4);
+        startCar(hybridCar);
+
+        CarSkeleton gasCar = new GasPoweredCar("Passat", "Petrol Engine", 7.5, 4);
+        startCar(gasCar);
+    }
+    public static void printResult(Car car) {
         System.out.println(car.startEngine());
 
         System.out.println(car.accelerate());
 
         System.out.println(car.brake());
-
-        Car mitsubishi = new Mitsubishi(6, "Outlander VRX 4WD");
-
-        System.out.println(mitsubishi.startEngine());
-
-        System.out.println(mitsubishi.accelerate());
-
-        System.out.println(mitsubishi.brake());
-
-        Car ford = new Ford(6, "Ford Falcon");
-
-        System.out.println(ford.startEngine());
-
-        System.out.println(ford.accelerate());
-
-        System.out.println(ford.brake());
-
-        Car holden = new Holden(6, "Holden Commodore");
-
-        System.out.println(holden.startEngine());
-
-        System.out.println(holden.accelerate());
-
-        System.out.println(holden.brake());
-
-        CarSkeleton carSkeleton = new CarSkeleton("Base car", "Generic Vehicle Description");
+    }
+    public static void startCar(CarSkeleton carSkeleton) {
         System.out.println(carSkeleton.startEngine());
         System.out.println(carSkeleton.drive());
-
-        CarSkeleton togg = new ElectricCar("TOGG T10X","Elektrikli araç", 523.0, 88 );
-        System.out.println(togg.startEngine());
-        System.out.println(togg.drive());
-        System.out.println(((ElectricCar)togg).recharge());
-
-        CarSkeleton hybridCar = new HybridCar("Toyota Prius", "Hybrid Engine", 4.2, 50, 4);
-        System.out.println(hybridCar.startEngine());
-        System.out.println(hybridCar.drive());
-
-        CarSkeleton gasCar = new GasPoweredCar("Passat", "Petrol Engine", 7.5, 4);
-        System.out.println(gasCar.startEngine());
-        System.out.println(gasCar.drive());
+        if (carSkeleton instanceof ElectricCar) {
+            System.out.println(((ElectricCar) carSkeleton).recharge());
+        }
     }
 }

@@ -1,22 +1,22 @@
 package org.example.company;
 
+import java.util.Objects;
+
 public class Car {
-    private boolean engine = true;
+    private boolean engine;
     private int cylinders;
     private String name;
-    private int wheels = 4;
+    private int wheels;
 
     public Car(int cylinders, String name) {
         this.cylinders = cylinders;
         this.name = name;
+        this.engine=true;
+        this.wheels=4;
     }
 
     public int getCylinders() {
         return cylinders;
-    }
-
-    public void setCylinders(int cylinders) {
-        this.cylinders = cylinders;
     }
 
     public String getName() {
